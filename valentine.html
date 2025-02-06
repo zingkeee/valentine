@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffcccb; /* Light pink background */
+            font-family: 'Great Vibes', cursive; /* Valentine-themed font */
+            position: relative;
+            overflow: hidden;
+        }
+        .box {
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #ff69b4; /* Hot pink border */
+            border-radius: 10px;
+            background-color: white;
+            position: relative;
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .question {
+            background-color: #fff0f5; /* Lavender blush background for the question */
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: white;
+        }
+        .yes, .no {
+            background-color: black; /* Black color for Yes and No buttons */
+        }
+        .gif-container {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px; /* Increased width for side GIFs */
+        }
+        .left-gif {
+            left: 50px;
+        }
+        .right-gif {
+            right: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gif-container left-gif">
+    <img id="leftGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTB4aW5ucnFzY3htaG01eWZqeWFjY3MxZzh0bDZyamg4djc1NHNhaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/CT5Ye7uVJLFtu/giphy.gif" alt="Left GIF">
+    
+</div>
+
+<div class="box" id="proposalBox">
+    <img src="https://media.giphy.com/media/AXhbp00D9dxF9BCqpn/giphy.gif?cid=790b7611xrbcexgd0u5hvxtdh8wsh7ydure8ny6hhdl06lm5&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Valentine's GIF">
+    <div class="question">Remrem, I love you so much. Will you be my valentine?</div>
+    <button class="no" onclick="moveBox()">NO!!</button>
+    <button class="yes" onclick="acceptProposal()">Yes</button>
+</div>
+
+<div class="gif-container right-gif">
+    <img id="rightGif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmV6dzh1b2Zoenc0YXM3YjV2dzBoY2FvN29ocHUzM2oxcXI4ODJnNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9J1zU4zNFijo4iLjl5/giphy.gif" alt="Right GIF">
+    
+</div>
+
+<script>
+    function moveBox() {
+        const box = document.getElementById('proposalBox');
+        const x = Math.random() * (window.innerWidth - box.offsetWidth);
+        const y = Math.random() * (window.innerHeight - box.offsetHeight);
+        box.style.position = 'absolute';
+        box.style.left = `${x}px`;
+        box.style.top = `${y}px`;
+    }
+
+    function acceptProposal() {
+        const box = document.getElementById('proposalBox');
+        box.innerHTML = `
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTVjYmoxa29jNXlmdjBsZGxyODBldmptZmM1aDIybXo4bmh4b21qdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/aC9bhPHeR4x7HGAWOB/giphy.gif" alt="Thank You GIF">
+            <p>THANK YOU AND I LOVE YOU SO MUCH</p>
+        `;
+        box.querySelector('.yes').style.display = 'none';
+        box.querySelector('.no').style.display = 'none';
+        
+        // Change the GIFs
+        document.getElementById('leftGif').src = "https://media.giphy.com/media/9O6Fb0oBIkPAJTurqX/giphy.gif?cid=790b7611u5cbj1koc5yfv0ldlr80evjmfc5h22mz8nhxomjw&ep=v1_gifs_search&rid=giphy.gif&ct=g"; // New left GIF
+        document.getElementById('rightGif').src = "hhttps://media.giphy.com/media/MSvTng2tCzQ1o5vNsT/giphy.gif?cid=790b7611u5cbj1koc5yfv0ldlr80evjmfc5h22mz8nhxomjw&ep=v1_gifs_search&rid=giphy.gif&ct=gttps://media.giphy.com/media/3o7aD2sa1g0g0g0g0g/giphy.gif"; // New right GIF
+
+        // Center and expand the box
+        box.style.position = 'fixed';
+        box.style.left = '50%';
+        box.style.top = '50%';
+        box.style.transform = 'translate(-50%, -50%)';
+        box.style.width = '400px'; // Expanded width
+        box.style.height = 'auto'; // Auto height
+    }
+</script>
+
+</body>
+</html>
